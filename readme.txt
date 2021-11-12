@@ -1,6 +1,10 @@
 Daniel Miao
 UID: 010839033
 
+An automated bank teller program that utilizes socket programming, 
+should keep server alive so that a client can exit and re-enter the same account
+and preserve the data.
+
 This program should run like:
 Run server.py with localhost and port number
 Run client.py with localhost and port number.
