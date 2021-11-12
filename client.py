@@ -1,3 +1,5 @@
+# Daniel Miao
+# 010839033
 import socket
 
 

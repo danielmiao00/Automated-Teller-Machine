@@ -1,5 +1,6 @@
+# Daniel Miao
+# 010839033
 import socket
-import sys
 
 
 class Account:
