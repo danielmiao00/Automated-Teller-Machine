@@ -12,11 +12,12 @@ def menu():
 
 host = socket.gethostname()  # Local machine name
 port = 12345  # Reserving port
-s = socket.socket()  # Socket object
-s.connect((host, port))  # Bind to port
+
 
 # Constantly prompt until ended
 while True:
+    s = socket.socket()  # Socket object
+    s.connect((host, port))  # Bind to port
     menu()  # Calling menu method to display menu to the user
     print("What would you like to do: ")
     user_input = input()  # Input for service wanted
@@ -48,4 +49,4 @@ while True:
     else:
         print("Incorrect input, please try again")
 
-s.close  # Close the socket
+    s.close  # Close the socket

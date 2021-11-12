@@ -24,7 +24,6 @@ class Account:
             client.send(confirm.encode())
         else:
             # Confirmation
-            self.temp_balance = self.account_balance  # Adjust account balance
             self.temp_balance = self.account_balance  # Adjust temp variable
             print("Withdrew $%.1f successfully" % amount)  # For server output
             confirm = "Withdrew $%.1f successfully" % amount  # For client output
@@ -58,13 +57,12 @@ class Server:
     port = 12345  # Reserving port
     s = socket.socket()  # Socket object
     s.bind((host, port))  # Bind to port
-
     s.listen(5)  # Waiting for the client
-    client, address = s.accept()  # Create client connection
-    print('Got connection from', address)
     server_obj = Account()
 
     while True:
+        client, address = s.accept()  # Create client connection
+        print('Got connection from', address)
         user_input = client.recv(1024).decode()
 
         # Deposit Function
@@ -118,11 +116,9 @@ class Server:
         elif user_input == '4':
             # Exiting
             client.send("Thank you choosing Bank's Banks".encode())
-            sys.exit(1)
 
         # Check for unexpected values (redundant, but failsafe)
         else:
             print("Incorrect input, please try again")
             client.send("Incorrect input, please try again".encode())
-
-    client.close()  # Close the connection
+        client.close()  # Close the connection
